@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7f4">
+  <meta name="description" content="Shop SWILLM swimwear and gear or register for swimming lessons with a dedicated teacher.">
+  <title>SWILLM — Find your flow</title>
+  <script>
+    if (window.location.protocol === 'file:') {
+      window.location.replace('http://127.0.0.1:8000/');
+    }
+  </script>
+  <link rel="stylesheet" href="/styles.css?v=classes">
+</head>
+<body>
+  <div class="announcement">COMPLIMENTARY DELIVERY ON ORDERS OVER ₦75,000</div>
+  <header class="site-header">
+    <a class="wordmark" href="#top" aria-label="SWILLM home">SWILLM<span>®</span></a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="#shop" data-collection="all" aria-current="true">Shop all</a><a href="#shop" data-collection="men">Men</a><a href="#shop" data-collection="women">Women</a><a href="#shop" data-collection="kids">Children</a><a href="#classes">Swimming classes</a>
+    </nav>
+    <button class="bag-button" id="open-bag" aria-label="Open shopping bag">Bag <span id="bag-count">0</span></button>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">MADE FOR THE WATER</p>
+        <h1 id="hero-title">Find your<br><em>flow.</em></h1>
+        <p class="hero-intro">Thoughtful swim essentials for early laps, long days and everything in between.</p>
+        <div class="hero-actions">
+          <a class="button button-dark" href="#shop" data-collection="all">Explore the collection <span aria-hidden="true">↘</span></a>
+          <a class="button button-outline" href="#classes">Swimming classes</a>
+        </div>
+        <div class="hero-note"><span class="note-dot"></span> Designed for every kind of swimmer</div>
+      </div>
+      <div class="hero-image">
+        <img class="hero-photo" src="/images/swim-cover.jpg" width="2400" height="1600" fetchpriority="high" alt="Swimmer holding a pool ladder beneath colourful lane ropes">
+      </div>
+      <div class="hero-side-label">SWIM / TRAIN / REPEAT</div>
+    </section>
+
+    <section class="classes-section" id="classes" aria-labelledby="classes-title">
+      <div class="classes-layout">
+        <div class="classes-intro">
+          <h2 id="classes-title">Swimming classes</h2>
+          <p>Train with a dedicated teacher. Choose a programme length and request a male or female teacher.</p>
+        </div>
+        <div class="classes-panel">
+          <form class="classes-form" id="classes-form" method="post" action="/api/class-registrations">
+            <fieldset>
+              <legend>Programme length</legend>
+              <div class="class-options">
+                <label><input type="radio" name="months" value="1" required><span>1 month</span></label>
+                <label><input type="radio" name="months" value="2" required><span>2 months</span></label>
+                <label><input type="radio" name="months" value="6" required><span>6 months</span></label>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>Teacher preference</legend>
+              <div class="class-options">
+                <label><input type="radio" name="teacherPreference" value="male" required><span>Male teacher</span></label>
+                <label><input type="radio" name="teacherPreference" value="female" required><span>Female teacher</span></label>
+              </div>
+            </fieldset>
+            <div class="class-contact">
+              <label>Swimmer’s full name<input type="text" name="name" required maxlength="100"></label>
+              <label>Contact email<input type="email" name="email" required maxlength="160" autocomplete="email"></label>
+            </div>
+            <p class="class-note">We’ll use your contact email to follow up about your teacher and schedule.</p>
+            <p class="class-error" id="class-error" role="alert" hidden></p>
+            <button class="button button-dark" type="submit">Request registration <span aria-hidden="true">→</span></button>
+          </form>
+          <div class="class-confirmation" id="class-confirmation" hidden>
+            <h3 tabindex="-1" id="class-confirmation-title">Registration request received</h3>
+            <p id="class-confirmation-copy"></p>
+            <button type="button" class="button button-outline" id="class-register-another">Register another swimmer</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="shop-section" id="shop">
+      <div class="section-heading">
+        <div><p class="eyebrow">THE SWILLM EDIT</p><h2>Kit for every<br class="mobile-break"> kind of water.</h2></div>
+        <p class="section-description">A considered collection of pieces that feel good, fit right, and are ready for your next swim.</p>
+      </div>
+      <nav class="collection-nav" aria-label="Shop by collection">
+        <a href="#shop" data-collection="all" aria-current="true">Shop all</a>
+        <a href="#shop" data-collection="men">Men</a>
+        <a href="#shop" data-collection="women">Women</a>
+        <a href="#shop" data-collection="kids">Children</a>
+        <a href="#shop" data-collection="gear">Unisex gear</a>
+      </nav>
+      <div class="shop-tools">
+        <div class="filter-list" id="filters" aria-label="Filter by product category"></div>
+        <label class="search-wrap"><span class="sr-only">Search products</span><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Find your kit" autocomplete="off"></label>
+      </div>
+      <div class="product-collections" id="products"><div class="loading">Gathering your swim kit…</div></div>
+      <div class="shop-foot"><span id="product-count" role="status"></span><span>Product photos are illustrative.</span></div>
+    </section>
+
+    <section class="quote-band"><span class="quote-mark">“</span><p>There’s a little more room to breathe<br>when you’re in the water.</p><span class="quote-byline">THE SWILLM POINT OF VIEW</span></section>
+  </main>
+
+  <footer class="site-footer"><a class="wordmark" href="#top">SWILLM<span>®</span></a><p>Made for the water. Wherever it takes you.</p><span>Illustrative stock photos · © 2026 SWILLM · SCHOOL PROJECT DEMO</span></footer>
+
+  <div class="drawer-backdrop" id="backdrop"></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-label="Shopping bag" aria-hidden="true" inert>
+    <div class="drawer-head"><div><p class="eyebrow">YOUR SELECTION</p><h2>Your bag <span id="drawer-count">(0)</span></h2></div><button class="icon-button" id="close-bag" aria-label="Close shopping bag">×</button></div>
+    <div class="cart-items" id="cart-items"></div>
+    <div class="cart-empty" id="cart-empty"><span>◎</span><p>Your next swim starts here.</p><button class="text-button" id="continue-shopping">Explore the collection ↗</button></div>
+    <div class="cart-bottom" id="cart-bottom" hidden><div class="subtotal"><span>Subtotal</span><strong id="subtotal">₦0</strong></div><button class="button button-dark checkout-trigger">Checkout <span aria-hidden="true">→</span></button></div>
+  </aside>
+
+  <div class="modal-backdrop" id="checkout-backdrop">
+    <section class="checkout-modal" role="dialog" aria-modal="true" aria-labelledby="checkout-title">
+      <button class="icon-button modal-close" id="close-checkout" aria-label="Close checkout">×</button>
+      <h2 id="checkout-title">Checkout</h2>
+      <form id="checkout-form">
+        <p class="checkout-note">Submit a demo order with your name and email. No payment is collected.</p>
+        <label>Full name<input name="name" required maxlength="100" autocomplete="name"></label>
+        <label>Email address<input name="email" type="email" required maxlength="160" autocomplete="email"></label>
+        <div class="checkout-total"><span>Items subtotal</span><strong id="checkout-total">₦0</strong></div>
+        <p class="checkout-error" id="checkout-error" role="alert" hidden></p>
+        <button class="button button-dark" type="submit">Place order <span aria-hidden="true">→</span></button>
+      </form>
+      <div class="order-success" id="order-success" hidden><span aria-hidden="true">✓</span><p id="success-copy"></p><button class="button button-dark" id="finish-order">Back to the shop</button></div>
+    </section>
+  </div>
+  <div class="modal-backdrop" id="product-backdrop">
+    <section class="checkout-modal product-modal" role="dialog" aria-modal="true" aria-labelledby="product-title">
+      <button class="icon-button modal-close" id="close-product" aria-label="Close product details">×</button>
+      <div class="product-detail-visual" id="detail-visual"><img class="product-detail-image" id="detail-image" alt=""></div>
+      <p class="eyebrow" id="detail-category"></p><h2 id="product-title"></h2><p class="detail-price" id="detail-price"></p>
+      <p class="detail-description" id="detail-description"></p>
+      <form id="product-form">
+        <label><span id="detail-size-label">Size</span><select id="detail-size" name="size" aria-labelledby="detail-size-label"></select></label>
+        <label><span id="detail-color-label">Colour</span><select id="detail-color" name="color" aria-labelledby="detail-color-label"></select></label>
+        <button class="button button-dark" type="submit">Add to bag <span aria-hidden="true">→</span></button>
+      </form>
+    </section>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="/app.js?v=classes" defer></script>
+</body>
+</html>
