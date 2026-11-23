@@ -1,0 +1,30 @@
+[
+  {
+    "id": "SW-664B522C",
+    "createdAt": "2026-11-15T17:37:09.506506+00:00",
+    "customer": {
+      "name": "princewill",
+      "email": "robert@gmail.com",
+      "phone": "",
+      "address": ""
+    },
+    "items": [
+      {
+        "productId": "plugs-aquafit",
+        "name": "AquaFit Ear Plug Set",
+        "quantity": 1,
+        "size": "One size",
+        "color": "Clear",
+        "unitPrice": 8500,
+        "lineTotal": 8500
+      }
+    ],
+    "total": 8500,
+    "currency": "NGN",
+    "paymentStatus": "demo — not charged",
+    "status": "received",
+    "notificationStatus": "pending",
+    "requestId": "89ded4c0-0461-4529-bd42-f24b8613f194",
+    "requestHash": "3f502d725dfa5a14a5db87b8f63007fe115eb58ab06cf70b3f4e9fd6492c8463"
+  }
+]
